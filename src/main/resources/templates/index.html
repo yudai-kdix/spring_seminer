@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Diary List</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Diary List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>内容</th>
+          <th>作成日時</th>
+          <th>編集</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="diary : ${diaries}">
+          <td th:text="${diary.title}">Title</td>
+          <td th:utext="${diary.content}">Content</td>
+          <td
+            th:text="${#temporals.format(diary.createdAt,'yyyy年M月d日H時m分作成')}"
+          >
+            Created At
+          </td>
+          <td>
+            <a th:href="@{/edit(id=${diary.id})}">View</a>
+            <a th:href="@{/delete(id=${diary.id})}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/add">新規作成</a>
+  </body>
+</html>

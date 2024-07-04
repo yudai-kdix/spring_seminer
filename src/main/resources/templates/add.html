@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add Diary</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="centered-container">
+      <h1>新規投稿</h1>
+      <form action="/save" method="post">
+        <label for="title"><p>Title:</p></label>
+        <input type="text" id="title" name="title" required />
+        <label for="content"><p>Content:</p></label>
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </body>
+</html>

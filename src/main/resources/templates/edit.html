@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Edit Diary</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="centered-container">
+      <h1>Edit Diary</h1>
+      <form action="/update" method="post">
+        <input type="hidden" name="id" th:value="${diary.id}" />
+        <label for="title"><p>Title:</p></label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          th:value="${diary.title}"
+          required
+        />
+        <label for="content"><p>Content:</p></label>
+        <textarea
+          id="content"
+          name="content"
+          required
+          th:text="${diary.content}"
+        ></textarea>
+        <button type="submit">Update</button>
+      </form>
+      <a href="/">Back to Diary List</a>
+    </div>
+  </body>
+</html>
